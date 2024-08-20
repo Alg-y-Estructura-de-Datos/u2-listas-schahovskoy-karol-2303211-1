@@ -34,6 +34,8 @@ public:
 
   void reemplazar(int pos, T dato);
 
+  bool contiene(const T& dato) const;
+
   void vaciar();
 
   void print();
@@ -246,5 +248,18 @@ void Lista<T>::print() {
     }
     std::cout << "NULL" << std::endl;
 }
+
+template <class T>
+bool Lista<T>::contiene(const T& dato) const {
+    Nodo<T>* actual = inicio;
+    while (actual != nullptr) {
+        if (actual->getDato() == dato) {
+            return true;
+        }
+        actual = actual->getSiguiente();
+    }
+    return false;
+}
+
 
 #endif // U02_LISTAS_LISTA_LISTA_H_
