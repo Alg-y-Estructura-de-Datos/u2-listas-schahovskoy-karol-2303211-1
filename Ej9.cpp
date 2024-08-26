@@ -11,14 +11,19 @@ void inicializar(ListaDoble<string> &lista){
     lista.insertarUltimo("https://facebook.com");
 }
 
+void agregar(ListaDoble<string> &lista){
+    string url;
+    cout<<"Ingrese la URL a agregar"<<endl;
+    cin>>url;
+    lista.insertarUltimo(url);
+}
+
 void mostrar(ListaDoble<string> &lista){
     if (lista.esVacia()){
         cout<<"La lista está vacía"<<endl;
         return;
     }
-    for(int i=0; i<lista.getTamanio(); i++){
-        cout<<lista.getDato(i)<<endl;
-    }
+    lista.imprimir();
 }
 
 void retroceder(ListaDoble<string> &lista, int &pos){
@@ -30,7 +35,7 @@ void retroceder(ListaDoble<string> &lista, int &pos){
         cout<<"No se puede retroceder más"<<endl;
         return;
     }
-    cout<<lista.getDato(pos-1)<<endl;
+    cout<<"URL actual: "<<lista.getDato(pos-1)<<endl;
     pos=pos-1;
 }
 
@@ -43,32 +48,32 @@ void avanzar(ListaDoble<string> &lista, int &pos){
         cout<<"No se puede avanzar más"<<endl;
         return;
     }
-    cout<<lista.getDato(pos+1)<<endl;
+    cout<<"URL actual: "<<lista.getDato(pos+1)<<endl;
     pos=pos+1;
 }
 
 void menu(ListaDoble<string> &lista, int &pos){
     int opcion;
     do{
-        cout<<"1. Mostrar lista"<<endl;
-        cout<<"2. Retroceder"<<endl;
-        cout<<"3. Avanzar"<<endl;
-        cout<<"4. Ver posicion actual"<<endl;
+        cout<<"1. Agregar página"<<endl;
+        cout<<"2. Mostrar historial"<<endl;
+        cout<<"3. Retroceder"<<endl;
+        cout<<"4. Avanzar"<<endl;
         cout<<"5. Salir"<<endl;
         cout<<"Ingrese una opcion"<<endl;
         cin>>opcion;
         switch(opcion){
             case 1:
-                mostrar(lista);
+                agregar(lista);
                 break;
             case 2:
-                retroceder(lista, pos);
+                mostrar(lista);
                 break;
             case 3:
-                avanzar(lista, pos);
+                retroceder(lista, pos);
                 break;
             case 4:
-                cout<<lista.getDato(pos)<<endl;
+                avanzar(lista, pos);
                 break;
             case 5:
                 cout<<"Adios"<<endl;
