@@ -36,7 +36,7 @@ void cargaContactos(CircList<Contacto> &lista){
 
 void mostrarContactos(CircList<Contacto> &lista){
     if (lista.esVacia()){
-        cout<<"La lista esta vacia"<<endl;
+        cout<<"La lista está vacia"<<endl;
     }
     lista.imprimir();
 }

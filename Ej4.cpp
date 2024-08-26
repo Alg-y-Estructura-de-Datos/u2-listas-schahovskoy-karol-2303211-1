@@ -20,7 +20,7 @@ int main(){
             cont++;
         }
     }
-    cout<<"La vocal "<<v<<" estÃ¡ incluida en la palabra "<<cont<<" veces"<<endl;
+    cout<<"La vocal "<<v<<" está incluida en la palabra "<<cont<<" veces"<<endl;
     
     return 0;
 }
