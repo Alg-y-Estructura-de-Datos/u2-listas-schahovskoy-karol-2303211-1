@@ -27,6 +27,8 @@ public:
 
     T getDato(int pos);
 
+    bool contiene(const T& dato) const;
+
     void eliminarPorValor(const T& valor);
 
     void imprimir();
@@ -235,6 +237,24 @@ void CircList<T>::eliminarPorValor(const T& valor) {
         }
     } while (actual != inicio);
 }
+
+template <class T>
+bool CircList<T>::contiene(const T& dato) const {
+    if (inicio == nullptr) {
+        return false; // Lista vacía
+    }
+    
+    Nodo<T>* actual = inicio;
+    do {
+        if (actual->getDato() == dato) {
+            return true;
+        }
+        actual = actual->getSiguiente();
+    } while (actual != inicio); // El bucle continúa hasta volver al nodo inicial
+    
+    return false;
+}
+
 
 
 #endif // U02_LISTAS_LISTA_CIRCLIST_H_
